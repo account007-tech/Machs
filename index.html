@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111827">
+    <title>Machs!</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="top">
+        <h1>Machs!</h1>
+        <p class="hint">Enter drücken → sprechen → fertig. Tippen auf Task =
+          erledigt.</p>
+      </header>
+      <section class="controls">
+        <!-- Unsichtbares "Eingabefeld": fängt Enter ab (und hilft auf Mobile mit Fokus) -->
+        <input id="enterCatcher" class="enterCatcher" inputmode="none" autocomplete="off"
+
+          placeholder="Tippe hier rein und drücke Enter, um zu sprechen…"> <button
+
+          id="micBtn" class="micBtn" type="button" aria-label="Aufnahme starten">
+          🎙️ Sprechen </button> <button id="refreshBtn" class="refreshBtn" type="button"
+
+          title="Neu 	vom Server laden"> ⟳ Refresh </button> <button id="clearBtn"
+
+          class="clearBtn" type="button"> Alles löschen </button> </section>
+      <section class="list" aria-label="To-Do Liste">
+        <div id="todoContainer" class="todoContainer"></div>
+        <div id="emptyState" class="emptyState">Noch keine Aufgaben.</div>
+      </section>
+      <footer class="footer"> <span id="status" class="status">Bereit.</span> </footer>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
