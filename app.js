@@ -1,1 +1,124 @@
+const STORAGE_KEY = "todos_v2";
 
+const input = document.getElementById("enterCatcher");
+const micBtn = document.getElementById("micBtn");
+const clearBtn = document.getElementById("clearBtn");
+const refreshBtn = document.getElementById("refreshBtn");
+const container = document.getElementById("todoContainer");
+const empty = document.getElementById("emptyState");
+const status = document.getElementById("status");
+
+let todos = load();
+render();
+
+// ===== Speech =====
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let rec = SR ? new SR() : null;
+
+if (rec) {
+  rec.lang = "de-DE";
+
+  rec.onresult = e => {
+    const text = e.results[0][0].transcript.trim();
+    if (text) add(text);
+  };
+
+  rec.onstart = () => setStatus("🎙️ Sprich…");
+  rec.onend = () => setStatus("Bereit");
+}
+
+// ===== INPUT FIX =====
+input.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+
+    const text = input.value.trim();
+
+    if (text) {
+      add(text);          // 👉 FIX: Texteingabe funktioniert jetzt
+      input.value = "";
+    } else {
+      startSpeech();
+    }
+  }
+});
+
+// ===== BUTTONS =====
+micBtn.onclick = startSpeech;
+
+clearBtn.onclick = () => {
+  todos = [];
+  save();
+  render();
+};
+
+refreshBtn.onclick = async () => {
+  setStatus("Aktualisiere…");
+
+  if ("serviceWorker" in navigator) {
+    const reg = await navigator.serviceWorker.getRegistration();
+    if (reg) await reg.update();
+  }
+
+  location.reload();
+};
+
+// ===== FUNCTIONS =====
+function startSpeech() {
+  if (!rec) {
+    setStatus("Keine Spracherkennung");
+    return;
+  }
+  rec.start();
+}
+
+function add(text) {
+  todos.unshift({
+    id: Date.now(),
+    text
+  });
+  save();
+  render();
+}
+
+function remove(id) {
+  todos = todos.filter(t => t.id !== id);
+  save();
+  render();
+}
+
+function render() {
+  container.innerHTML = "";
+
+  if (!todos.length) {
+    empty.style.display = "block";
+    return;
+  }
+
+  empty.style.display = "none";
+
+  todos.forEach(t => {
+    const btn = document.createElement("button");
+    btn.className = "todoBtn";
+    btn.textContent = t.text;
+    btn.onclick = () => remove(t.id);
+    container.appendChild(btn);
+  });
+}
+
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+}
+
+function load() {
+  return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+}
+
+function setStatus(t) {
+  status.textContent = t;
+}
+
+// ===== SERVICE WORKER =====
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js");
+}
