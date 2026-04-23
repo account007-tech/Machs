@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111827">
+    <title>Machs!</title>
+    <!-- PWA -->
+    <link rel="manifest" href="./manifest.webmanifest">
+    <!-- Apple Support -->
+    <link rel="apple-touch-icon" href="./icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="top">
+        <h1>Machs!</h1>
+        <p class="hint"> Text eingeben ODER Enter drücken → sprechen → Task
+          erscheint als Button </p>
+      </header>
+      <section class="controls"> <input id="enterCatcher" class="enterCatcher"
+
+          inputmode="text" autocomplete="off" placeholder="Aufgabe eingeben oder Enter drücken zum Sprechen…"
+
+          type="text"> <button id="micBtn">🎙️</button> <button id="refreshBtn">⟳</button>
+        <button id="clearBtn">✖</button> </section>
+      <section class="list">
+        <div id="todoContainer"></div>
+        <div id="emptyState">Noch keine Aufgaben</div>
+      </section>
+      <footer class="footer"> <span id="status">Bereit</span> </footer>
+    </main>
+    <script src="./app.js"></script>
+      </body>
+</html>
 
