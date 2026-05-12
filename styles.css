@@ -1,0 +1,74 @@
+:root{
+  --bg:#0b1220;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --border:rgba(255,255,255,.1);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.app{
+  max-width:700px;
+  margin:auto;
+  padding:16px;
+}
+
+.controls{
+  display:grid;
+  grid-template-columns:1fr auto auto auto;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.enterCatcher{
+  padding:14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:#111827;
+  color:white;
+  font-size:16px;
+}
+
+button{
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:#1f2937;
+  color:white;
+}
+
+.list{
+  min-height:220px;
+  padding:12px;
+  border-radius:16px;
+  background:#111827;
+}
+
+.todoContainer{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.todoBtn{
+  border-radius:999px;
+  padding:12px 16px;
+  background:#2563eb;
+  color:white;
+  border:none;
+}
+
+.emptyState{
+  color:var(--muted);
+}
+
+.status{
+  color:var(--muted);
+}
