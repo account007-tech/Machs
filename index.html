@@ -1,54 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#111827" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Machs!" />
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111827">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Machs!">
+    <title>Machs!</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="apple-touch-icon" href="./Icon.png">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="top">
+        <h1></h1>
+        <p class="hint"></p>
+      </header>
+      <section class="controls"> <input id="enterCatcher" class="enterCatcher"
 
-  <title>Machs!</title>
+          inputmode="text" enterkeyhint="done" autocomplete="off" placeholder="Text eingeben oder Tastatur-Mikrofon verwenden..."
 
-  <link rel="manifest" href="./manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="./Icon.png" />
-  <link rel="stylesheet" href="./styles.css" />
-</head>
-<body>
-  <main class="app">
-    <header class="top">
-      <h1>Machs!</h1>
-      <p class="hint">
-        Text eingeben oder Tastatur-Mikrofon verwenden.
-      </p>
-    </header>
-
-    <section class="controls">
-      <input
-        id="enterCatcher"
-        class="enterCatcher"
-        type="text"
-        inputmode="text"
-        enterkeyhint="done"
-        autocomplete="off"
-        placeholder="Neue Aufgabe eingeben…"
-      />
-
-      <button id="micBtn" class="micBtn">🎙️</button>
-      <button id="refreshBtn" class="refreshBtn">⟳</button>
-      <button id="clearBtn" class="clearBtn">✕</button>
-    </section>
-
-    <section class="list">
-      <div id="todoContainer" class="todoContainer"></div>
-      <div id="emptyState" class="emptyState">Noch keine Aufgaben.</div>
-    </section>
-
-    <footer class="footer">
-      <span id="status" class="status">Bereit.</span>
-    </footer>
-  </main>
-
-  <script src="./app.js"></script>
-</body>
+          type="text"> 
+        <button id="micBtn" class="micBtn" style="display:none;" disabled="disabled">🎙️</button>
+        <button id="refreshBtn" class="refreshBtn">⟳</button> 
+        <button id="clearBtn" class="clearBtn"style="display:none;">✕</button> </section>
+      <section class="list">
+        <div id="todoContainer" class="todoContainer"></div>
+        
+        <div id="emptyState" class="emptyState"></div>
+      </section>
+      <footer class="footer"> <span id="status" class="status">Bereit.</span> </footer>
+    </main>
+    <script src="./app.js"></script>
+  </body>
 </html>
