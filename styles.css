@@ -1,74 +1,83 @@
-:root{
-  --bg:#617533;
-  --text:#e5e7eb;
-  --muted:#E0AF3A;
-  --border:rgba(255,255,255,.1);
+:root {
+  --bg: #617533;
+  --text: #e5e7eb;
+  --muted: #E0AF3A;
 }
 
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--text);
+* {
+  box-sizing: border-box;
 }
 
-.app{
-  max-width:700px;
-  margin:auto;
-  padding:16px;
+body {
+  margin: 0px;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
-.controls{
-  display:grid;
-  grid-template-columns:1fr auto auto auto;
-  gap:10px;
-  margin-bottom:14px;
+.app {
+  max-width: 700px;
+  margin: auto;
+  padding: 16px;
 }
 
-.enterCatcher{
-  padding:14px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  background:#ffffff;
-  color:rgb(0, 0, 0);
-  font-size:16px;
+.controls {
+  display: grid;
+  -webkit-grid-template-columns: 1fr auto auto auto;
+  grid-template-columns: 1fr auto auto auto;
+  margin-bottom: 14px;
 }
 
-button{
-  padding:12px 14px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  background:#ffffff;
-  color:rgb(0, 0, 0);
+.enterCatcher {
+  padding: 14px;
+  border-radius: 12px;
+  background: white none repeat scroll 0% 0%;
+  color: black;
+  font-size: 16px;
+  border: 1px solid #030303;
 }
 
-.list{
-  min-height:220px;
-  padding:12px;
-  border-radius:16px;
-  background:#6C8238;
+button {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: white none repeat scroll 0% 0%;
+  color: black;
+  font-size: 16px;
 }
 
-.todoContainer{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+.list {
+  min-height: 220px;
+  padding: 12px;
+  border-radius: 16px;
+  background: #6c8238 none repeat scroll 0% 0%;
 }
 
-.todoBtn{
-  border-radius:9px;
-  padding:12px 16px;
-  background:#db5213;
-  color:rgb(229, 226, 56);
-  border:none;
+.todoContainer {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.emptyState{
-  color:var(--muted);
+.todoBtn {
+  border-radius: 9px;
+  padding: 12px 16px;
+  background: #db5213 none repeat scroll 0% 0%;
+  color: #e5e238;
+  border: 1px solid #e0af3a;
 }
 
-.status{
-  color:var(--muted);
+.emptyState {
+  color: var(--muted);
 }
+
+.status {
+  color: var(--muted);
+}
+
+#refreshBtn {
+  border: 1px solid black;
+}
+
+#enterCatcher {
+}
+
