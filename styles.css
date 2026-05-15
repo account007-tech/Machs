@@ -39,6 +39,7 @@ body {
 
 button {
   padding: 12px 14px;
+  margin: 10px;
   border-radius: 12px;
   border: 1px solid var(--border);
   background: white none repeat scroll 0% 0%;
